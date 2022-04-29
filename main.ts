@@ -4,6 +4,14 @@ function green () {
     basic.pause(500)
     range.showColor(neopixel.colors(NeoPixelColors.Black))
 }
+input.onButtonPressed(Button.A, function () {
+    RED()
+    basic.pause(1000)
+    green()
+    basic.pause(1000)
+    YELLOW()
+    basic.pause(1000)
+})
 function RED () {
     range = strip.range(0, 1)
     range.showColor(neopixel.colors(NeoPixelColors.Red))
@@ -19,13 +27,5 @@ function YELLOW () {
 let range: neopixel.Strip = null
 let strip: neopixel.Strip = null
 basic.showIcon(IconNames.Angry)
-strip = neopixel.create(DigitalPin.P0, 3, NeoPixelMode.RGB)
+strip = neopixel.create(DigitalPin.P16, 3, NeoPixelMode.RGB)
 strip.setBrightness(255)
-basic.forever(function () {
-    RED()
-    basic.pause(1000)
-    green()
-    basic.pause(1000)
-    YELLOW()
-    basic.pause(1000)
-})
