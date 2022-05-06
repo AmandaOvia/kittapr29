@@ -13,9 +13,14 @@ input.onButtonPressed(Button.A, function () {
     basic.pause(1000)
 })
 function RED () {
+    index = 20
+    basic.showIcon(IconNames.Yes)
+    for (let index = 0; index <= 4; index++) {
+        index = index - 1
+    }
     range = strip.range(0, 1)
     range.showColor(neopixel.colors(NeoPixelColors.Red))
-    basic.pause(500)
+    basic.pause(5000)
     range.showColor(neopixel.colors(NeoPixelColors.Black))
 }
 function YELLOW () {
@@ -24,6 +29,7 @@ function YELLOW () {
     basic.pause(500)
     range.showColor(neopixel.colors(NeoPixelColors.Black))
 }
+let index = 0
 let range: neopixel.Strip = null
 let strip: neopixel.Strip = null
 basic.showIcon(IconNames.Angry)
