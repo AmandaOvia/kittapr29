@@ -18,7 +18,15 @@ function green () {
     range.showColor(neopixel.colors(NeoPixelColors.Black))
 }
 input.onButtonPressed(Button.A, function () {
-	
+    RED()
+    basic.pause(1000)
+    Cross()
+    basic.pause(1000)
+    YELLOW()
+    basic.pause(1000)
+    green()
+    cannot_cross()
+    basic.pause(1000)
 })
 function RED () {
     range = strip.range(0, 1)
@@ -32,6 +40,14 @@ function cannot_cross () {
     basic.pause(100)
     basic.showIcon(IconNames.No)
 }
+input.onButtonPressed(Button.B, function () {
+    range = strip.range(0, 1)
+    range.showColor(neopixel.colors(NeoPixelColors.Green))
+    range = strip.range(1, 1)
+    range.showColor(neopixel.colors(NeoPixelColors.Black))
+    range = strip.range(2, 1)
+    range.showColor(neopixel.colors(NeoPixelColors.Black))
+})
 function YELLOW () {
     range = strip.range(0, 1)
     range.showColor(neopixel.colors(NeoPixelColors.Yellow))
@@ -45,14 +61,3 @@ let strip: neopixel.Strip = null
 basic.showIcon(IconNames.Angry)
 strip = neopixel.create(DigitalPin.P0, 3, NeoPixelMode.RGB)
 strip.setBrightness(255)
-basic.forever(function () {
-    RED()
-    basic.pause(1000)
-    Cross()
-    basic.pause(1000)
-    YELLOW()
-    basic.pause(1000)
-    green()
-    cannot_cross()
-    basic.pause(1000)
-})
